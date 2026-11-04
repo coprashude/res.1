@@ -13,7 +13,7 @@ import Languages from '../sections/Languages/Languages';
 import CustomSection from '../sections/CustomSection/CustomSection';
 import TemplateEngine from '../../templates/TemplateEngine';
 import styles from './EditorLayout.module.css';
-import { ZoomIn, ZoomOut, Maximize2, Eye, Edit3 } from 'lucide-react';
+import { ZoomIn, ZoomOut, Maximize2, Eye, Edit3, Scissors } from 'lucide-react';
 
 const SECTION_COMPONENTS = {
   personalDetails: PersonalDetails,
@@ -31,6 +31,7 @@ export const EditorLayout = () => {
   const { activeSection, resumeData } = useResume();
   const [zoom, setZoom] = useState(1);
   const [mobileTab, setMobileTab] = useState("editor"); // "editor" | "preview"
+  const [showPageBreaks, setShowPageBreaks] = useState(true);
 
   const ActiveComponent = SECTION_COMPONENTS[activeSection] || PersonalDetails;
 
@@ -70,9 +71,20 @@ export const EditorLayout = () => {
         {/* Live Preview Half */}
         <div className={`${styles.previewHalf} ${mobileTab === "editor" ? styles.hiddenOnMobile : ""}`}>
           <div className={styles.previewToolbar}>
-            <span className={styles.previewLabel}>
-              <Eye size={14} /> Live Sheet Preview (A4)
-            </span>
+            <div className={styles.toolbarLeft}>
+              <span className={styles.previewLabel}>
+                <Eye size={14} /> Live Sheet Preview (A4)
+              </span>
+              <button
+                type="button"
+                onClick={() => setShowPageBreaks(!showPageBreaks)}
+                className={`${styles.pageBreakToggle} ${showPageBreaks ? styles.pageBreakActive : ""}`}
+                title="Toggle visual page break guide"
+              >
+                <Scissors size={12} /> Page Breaks
+              </button>
+            </div>
+
             <div className={styles.zoomControls}>
               <button 
                 type="button" 
@@ -108,6 +120,15 @@ export const EditorLayout = () => {
               style={{ transform: `scale(${zoom})`, transformOrigin: 'top center' }}
             >
               <TemplateEngine data={resumeData} />
+
+              {/* Visual Page 1 / Page 2 Break Line Guide */}
+              {showPageBreaks && (
+                <div className={styles.pageBreakIndicator}>
+                  <div className={styles.pageBreakLine}>
+                    <span>PAGE 1 ENDS HERE (A4 297mm)</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -117,4 +138,3 @@ export const EditorLayout = () => {
 };
 
 export default EditorLayout;
-

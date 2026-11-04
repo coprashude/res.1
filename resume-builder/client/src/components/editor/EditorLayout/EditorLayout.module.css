@@ -1,8 +1,8 @@
 .appContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   background: #f1f5f9;
 }
@@ -80,11 +80,36 @@
   font-weight: 600;
 }
 
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .previewLabel {
   display: flex;
   align-items: center;
   gap: 6px;
   color: #e2e8f0;
+}
+
+.pageBreakToggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pageBreakActive {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #3b82f6;
 }
 
 .zoomControls {
@@ -126,12 +151,40 @@
 }
 
 .sheetWrapper {
+  position: relative;
   transition: transform 0.15s ease-out;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
   background: #ffffff;
   width: 210mm;
   min-height: 297mm;
   box-sizing: border-box;
+}
+
+/* Page Break Line indicator at 297mm A4 mark */
+.pageBreakIndicator {
+  position: absolute;
+  top: 297mm;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.pageBreakLine {
+  border-top: 2px dashed #ef4444;
+  text-align: right;
+  padding-right: 12px;
+}
+
+.pageBreakLine span {
+  font-size: 9.5px;
+  font-weight: 800;
+  background: #ef4444;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 2px;
+  display: inline-block;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 900px) {
@@ -152,37 +205,7 @@
 }
 
 @media print {
-  body, html {
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-  }
-  .appContainer {
-    display: block;
-    height: auto;
-    width: 100%;
-    overflow: visible;
-  }
-  .editorHalf, .mobileTabs, .previewToolbar {
+  .pageBreakIndicator {
     display: none !important;
   }
-  .previewHalf {
-    background: transparent;
-    overflow: visible;
-  }
-  .previewViewport {
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    overflow: visible;
-    display: block;
-  }
-  .sheetWrapper {
-    box-shadow: none !important;
-    transform: none !important;
-    width: 100% !important;
-    min-height: auto !important;
-    margin: 0 !important;
-  }
 }
-

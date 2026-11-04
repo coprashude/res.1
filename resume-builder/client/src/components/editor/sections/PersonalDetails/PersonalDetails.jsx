@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useResume } from '../../../../context/ResumeContext';
 import styles from './PersonalDetails.module.css';
-import { User, Mail, Phone, MapPin, Globe, Linkedin, Github, Image } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Globe, Linkedin, Github, Image, Upload, X } from 'lucide-react';
 
 export const PersonalDetails = () => {
-  const { resumeData, updatePersonalDetails } = useResume();
-  const p = resumeData.personalDetails;
+  const { resumeData, updatePersonalDetails, handlePhotoUpload } = useResume();
+  const p = resumeData.personalDetails || {};
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     updatePersonalDetails(e.target.name, e.target.value);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handlePhotoUpload(file);
+    }
   };
 
   return (
@@ -16,6 +24,48 @@ export const PersonalDetails = () => {
       <div className={styles.sectionHeader}>
         <h2 className={styles.title}>Personal Information</h2>
         <p className={styles.subtitle}>Enter your contact information and headline to let recruiters find you.</p>
+      </div>
+
+      {/* Photo Upload Section */}
+      <div className={styles.photoUploadRow}>
+        <div className={styles.avatarPreview}>
+          {p.avatar ? (
+            <img src={p.avatar} alt="Profile" className={styles.avatarImg} />
+          ) : (
+            <div className={styles.avatarPlaceholder}>
+              <User size={32} />
+            </div>
+          )}
+        </div>
+        <div className={styles.photoControls}>
+          <span className={styles.photoLabel}>Candidate Photo / Headshot</span>
+          <div className={styles.photoBtnGroup}>
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className={styles.uploadBtn}
+            >
+              <Upload size={14} /> Upload from Device
+            </button>
+            {p.avatar && (
+              <button
+                type="button"
+                onClick={() => updatePersonalDetails("avatar", "")}
+                className={styles.removePhotoBtn}
+              >
+                <X size={14} /> Remove
+              </button>
+            )}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              accept="image/*"
+              style={{ display: 'none' }}
+            />
+          </div>
+          <span className={styles.photoHint}>Supports JPG, PNG, WEBP. Converted locally into resume.</span>
+        </div>
       </div>
 
       <div className={styles.formGrid}>
@@ -111,18 +161,6 @@ export const PersonalDetails = () => {
             value={p.github || ""}
             onChange={handleChange}
             placeholder="e.g. github.com/alexmorgan"
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.formGroupFull}>
-          <label className={styles.label}><Image size={14} /> Profile Picture / Avatar URL</label>
-          <input
-            type="text"
-            name="avatar"
-            value={p.avatar || ""}
-            onChange={handleChange}
-            placeholder="Paste image URL (optional)"
             className={styles.input}
           />
         </div>

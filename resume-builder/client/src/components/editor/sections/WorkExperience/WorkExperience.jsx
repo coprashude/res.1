@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useResume } from '../../../../context/ResumeContext';
 import { aiService } from '../../../../services/ai.service';
 import styles from './WorkExperience.module.css';
-import { Plus, Trash2, Sparkles, Briefcase } from 'lucide-react';
+import { Plus, Trash2, Sparkles, Briefcase, ChevronUp, ChevronDown } from 'lucide-react';
 
 export const WorkExperience = () => {
-  const { resumeData, addListItem, updateListItem, removeListItem } = useResume();
+  const { resumeData, addListItem, updateListItem, removeListItem, moveItemUp, moveItemDown } = useResume();
   const experiences = resumeData.workExperience || [];
   const [loadingAiId, setLoadingAiId] = useState(null);
 
@@ -56,7 +56,28 @@ export const WorkExperience = () => {
           {experiences.map((exp, index) => (
             <div key={exp.id} className={styles.card}>
               <div className={styles.cardTop}>
-                <span className={styles.cardIndex}>Position #{index + 1}</span>
+                <div className={styles.reorderGroup}>
+                  <button
+                    type="button"
+                    disabled={index === 0}
+                    onClick={() => moveItemUp("workExperience", index)}
+                    className={styles.moveBtn}
+                    title="Move up"
+                  >
+                    <ChevronUp size={14} />
+                  </button>
+                  <button
+                    type="button"
+                    disabled={index === experiences.length - 1}
+                    onClick={() => moveItemDown("workExperience", index)}
+                    className={styles.moveBtn}
+                    title="Move down"
+                  >
+                    <ChevronDown size={14} />
+                  </button>
+                  <span className={styles.cardIndex}>Position #{index + 1}</span>
+                </div>
+
                 <button
                   type="button"
                   onClick={() => removeListItem("workExperience", exp.id)}

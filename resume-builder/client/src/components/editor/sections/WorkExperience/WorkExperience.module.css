@@ -87,11 +87,40 @@
   margin-bottom: 12px;
 }
 
+.reorderGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.moveBtn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  border-radius: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moveBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.moveBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 .cardIndex {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: #64748b;
+  margin-left: 6px;
 }
 
 .removeBtn {
@@ -192,4 +221,3 @@
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
-
