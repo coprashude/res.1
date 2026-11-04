@@ -1,0 +1,188 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.mobileTabs {
+  display: none;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.tabActive {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.mainSplit {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editorHalf {
+  display: flex;
+  width: 52%;
+  min-width: 480px;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.formContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+  background: #ffffff;
+}
+
+.formContent {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.previewHalf {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #64748b;
+  overflow: hidden;
+}
+
+.previewToolbar {
+  height: 38px;
+  background: #334155;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.previewLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e2e8f0;
+}
+
+.zoomControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zoomBtn {
+  background: #475569;
+  border: none;
+  color: #ffffff;
+  padding: 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.zoomBtn:hover {
+  background: #64748b;
+}
+
+.zoomText {
+  font-size: 11px;
+  min-width: 36px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.previewViewport {
+  flex: 1;
+  overflow: auto;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #475569;
+}
+
+.sheetWrapper {
+  transition: transform 0.15s ease-out;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+  width: 210mm;
+  min-height: 297mm;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .mobileTabs {
+    display: flex;
+  }
+  .mainSplit {
+    flex-direction: column;
+  }
+  .editorHalf {
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+  }
+  .hiddenOnMobile {
+    display: none !important;
+  }
+}
+
+@media print {
+  body, html {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  .appContainer {
+    display: block;
+    height: auto;
+    width: 100%;
+    overflow: visible;
+  }
+  .editorHalf, .mobileTabs, .previewToolbar {
+    display: none !important;
+  }
+  .previewHalf {
+    background: transparent;
+    overflow: visible;
+  }
+  .previewViewport {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    overflow: visible;
+    display: block;
+  }
+  .sheetWrapper {
+    box-shadow: none !important;
+    transform: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+  }
+}
+

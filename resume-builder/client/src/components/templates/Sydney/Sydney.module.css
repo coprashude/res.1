@@ -1,0 +1,191 @@
+.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #1e293b;
+  line-height: var(--resume-line-height, 1.5);
+}
+
+.sidebar {
+  background: var(--resume-dark, #0f172a);
+  color: #f8fafc;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--resume-primary, #3b82f6);
+  margin: 0 auto;
+}
+
+.sideName {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.sideRole {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--resume-primary, #60a5fa);
+  margin: 2px 0 0 0;
+  text-align: center;
+}
+
+.sideHeading {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 4px;
+  margin: 0 0 8px 0;
+}
+
+.contactBlock, .skillsBlock, .eduBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #cbd5e1;
+  word-break: break-all;
+}
+
+.skillItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.dotBar {
+  display: flex;
+  gap: 3px;
+}
+
+.dotFilled {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--resume-primary, #3b82f6);
+}
+
+.dotEmpty {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #475569;
+}
+
+.sideEduItem {
+  margin-bottom: 6px;
+}
+
+.eduDegree {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.eduInst {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.eduYear {
+  font-size: 10px;
+  color: #64748b;
+}
+
+.main {
+  padding: var(--resume-padding, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainHeading {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--resume-primary, #2563eb);
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin: 0 0 10px 0;
+}
+
+.summaryText {
+  font-size: 12.5px;
+  color: #334155;
+  margin: 0;
+}
+
+.expCard {
+  margin-bottom: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.jobTitle {
+  font-size: 13.5px;
+  color: #0f172a;
+}
+
+.expDate {
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.companyLine {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--resume-primary, #2563eb);
+  margin-top: 2px;
+}
+
+.expBody {
+  font-size: 12px;
+  color: #334155;
+  margin-top: 4px;
+}
+
+.expBody p {
+  margin: 2px 0;
+}
+
+.techTag {
+  font-size: 11px;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #475569;
+}
+
+.projDesc {
+  font-size: 12px;
+  color: #334155;
+  margin: 4px 0 0 0;
+}
+

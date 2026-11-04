@@ -1,0 +1,271 @@
+.container {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #1e293b;
+  padding: var(--resume-padding, 24px);
+  font-family: inherit;
+  line-height: var(--resume-line-height, 1.5);
+}
+
+.header {
+  border-bottom: 2px solid var(--resume-primary, #2563eb);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--resume-primary, #2563eb);
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--resume-dark, #0f172a);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--resume-primary, #2563eb);
+  margin: 4px 0 0 0;
+}
+
+.contactGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bodyGrid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: var(--resume-gap, 24px);
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebarColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 18px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--resume-primary, #2563eb);
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 4px;
+  margin: 0 0 10px 0;
+}
+
+.sideTitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: var(--resume-dark, #1e293b);
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+  margin: 0 0 8px 0;
+}
+
+.summaryText {
+  font-size: 13px;
+  color: #334155;
+  margin: 0;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.itemRole {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.itemDate {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.itemSub {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--resume-primary, #2563eb);
+}
+
+.itemDescription {
+  font-size: 12.5px;
+  color: #334155;
+  margin-top: 4px;
+}
+
+.itemDescription p {
+  margin: 2px 0;
+}
+
+.projectItem {
+  margin-bottom: 10px;
+}
+
+.itemLink {
+  font-size: 11px;
+  color: var(--resume-primary, #2563eb);
+}
+
+.techPill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: 2px 0 4px 0;
+}
+
+.projectDesc {
+  font-size: 12px;
+  color: #334155;
+  margin: 0;
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skillRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.skillName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.skillBar {
+  width: 100%;
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  background: var(--resume-primary, #2563eb);
+}
+
+.sideItem {
+  margin-bottom: 8px;
+}
+
+.sideDegree {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sideInst {
+  font-size: 12px;
+  color: #475569;
+}
+
+.sideDate {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.sideGrade {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--resume-primary, #2563eb);
+}
+
+.certName {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.certIssuer {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.langPills {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.langTag {
+  font-size: 11.5px;
+  color: #334155;
+}
+
+.customText {
+  font-size: 12px;
+  color: #334155;
+  white-space: pre-line;
+  margin: 0;
+}
+

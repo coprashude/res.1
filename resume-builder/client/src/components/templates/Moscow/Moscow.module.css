@@ -1,0 +1,137 @@
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #0f172a;
+  line-height: var(--resume-line-height, 1.5);
+  font-family: inherit;
+}
+
+.blackBanner {
+  background: var(--resume-primary, #0f172a);
+  color: #ffffff;
+  padding: var(--resume-padding, 24px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.name {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--resume-accent, #93c5fd);
+  margin: 4px 0 0 0;
+  letter-spacing: 1px;
+}
+
+.contactCol {
+  font-size: 11.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: right;
+  color: #e2e8f0;
+}
+
+.section {
+  padding: 0 var(--resume-padding, 24px);
+  margin-top: 18px;
+}
+
+.barTitle {
+  background: #f1f5f9;
+  border-left: 4px solid var(--resume-primary, #0f172a);
+  padding: 4px 10px;
+  margin-bottom: 10px;
+}
+
+.barTitle span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #0f172a;
+}
+
+.text {
+  font-size: 12.5px;
+  color: #334155;
+  margin: 0;
+}
+
+.block {
+  margin-bottom: 14px;
+}
+
+.blockRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.boldRole {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.dateBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.compLocation {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--resume-primary, #0f172a);
+  margin: 2px 0 4px 0;
+}
+
+.bulletList {
+  font-size: 12px;
+  color: #334155;
+}
+
+.bulletList p {
+  margin: 2px 0;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 var(--resume-padding, 24px);
+  margin-top: 18px;
+  margin-bottom: 24px;
+}
+
+.skillCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skillItem {
+  font-size: 11px;
+  font-weight: 600;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 3px 7px;
+  border-radius: 3px;
+  color: #1e293b;
+}
+
+.eduItem {
+  margin-bottom: 8px;
+}
+
